@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fikrlog</title>
-  </head>
-  <body>
-    <h2>Maqolalar</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/article_list.css') }}">
 
-    {% for slug, article in articles.items() %}
-    <a href="/blog/{{slug}}">{{ article.title }}</a><br />
+    <title>Samandar's Tech Blog</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <a href="#" class="logo">
+            <span class="terminal-logo">~/sam_blog</span>
+        </a>
+        <nav class="nav">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Blog</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <main class="blog-list">
+        {% for slug, post in articles.items() %}
+        <article class="blog-post">
+            <h2 class="post-title">
+                <a href="/blog/{{slug}}">{{ post.title }}</a>
+            </h2>
+            <div class="post-meta">
+                <span class="post-date">{{ post.title }}</span>
+                <span class="post-category">{{ post.category }}</span>
+            </div>
+            <div class="post-excerpt">
+                <p>{{ post.preview }}</p>
+            </div>
+            <div class="tags">
+                {% for tag in post.tags %}
+                <span class="tag">{{ tag }}</span>
+{#                <span class="tag">PostgreSQL</span>#}
+{#                <span class="tag">API Design</span>#}
+{#                <span class="tag">Performance</span>#}
+                {% endfor %}
+            </div>
+            <a href="/blog/{{slug}}">Read More →</a>
+        </article>
     {% endfor %}
-  </body>
+        <div class="pagination">
+            <a href="#" class="page-link disabled">←</a>
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">→</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Samandar Abdukodirov. All rights reserved.</p>
+    </footer>
+</div>
+</body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/article_detail.css') }}">
+    <!-- Add highlight.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="#" class="logo"><span class="terminal-logo">&gt;_</span> My Tech Blog</a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Articles</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+        </header>
+
+        <article class="post-content">
+            <!-- Parse frontmatter for title, date if needed -->
+            <!-- You could extract and use metadata from the markdown content -->
+
+            <!-- Render Markdown content directly -->
+            {{ post.content|markdown|safe }}
+        </article>
+
+        <footer class="footer">
+            <p>&copy; 2025 Tech Blog. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Add highlight.js for code highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,10 +1,11 @@
 ---
-title: Fast Api Documentation
-date: December 15, 2021
+title: Docker Docuementation
+date: June 12, 2022
 category: Backend Development
-author: Sam Jamo
+author: Samandar Abdukodirov
 tags: [Networking, WebDevelopment, HTTP, Performance, BrowserRendering]
-preview: A comprehensive guide to containerizing your microservices using Docker and orchestrating them with Kubernetes for improved scalability and reliability.
+preview: Understanding the journey of an HTTP request is fundamental for any web developer. This article breaks down the complex process 
+
 ---
 
 [![Ask Me Anything][0a]][0b]
@@ -248,7 +249,7 @@ B) Another option is to push the container to [dockerhub][19], similar to how on
   docker tag docker-example username/docker-example
   docker push username/docker-example
   ```
-
+![HTTP request lifecycle diagram](/static/images/go_postgresql.png)
 remember to replace `username` with your actual dockerhub account name. You can check that the container is now hosted on your [dockerhub repositories][20]. Your colleagues can then pull the Docker container locally on their machines, and can simply run it (i.e. step 13 in the [above section](#iah)). That requires them to also have the Docker app installed on their machines. They have to pull the Docker container you created and run it:
 
 [20]: https://hub.docker.com/repositories
