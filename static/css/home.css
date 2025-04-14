@@ -28,6 +28,7 @@ body, html {
     color: var(--terminal-text);
     margin-bottom: 10px;
     display: flex;
+    flex-wrap: wrap; /* Allow prompt to wrap on small screens */
 }
 
 .prompt::before {
@@ -90,6 +91,7 @@ body, html {
     border: 1px solid var(--terminal-text);
     padding: 2px 8px;
     border-radius: 3px;
+    margin-bottom: 5px; /* Add space between tags when they wrap */
 }
 
 .loading {
@@ -120,6 +122,7 @@ progress::-webkit-progress-value {
     white-space: pre;
     color: var(--terminal-text);
     margin: 20px 0;
+    overflow-x: auto; /* Allow horizontal scrolling for ASCII art */
 }
 
 a {
@@ -139,6 +142,7 @@ a:hover {
 
 .contact-item {
     margin: 5px 0;
+    word-break: break-word; /* Allow long email addresses to break */
 }
 
 .help-command {
@@ -158,6 +162,7 @@ a:hover {
     padding: 10px;
     border: 1px solid var(--terminal-text);
     border-radius: 5px;
+    z-index: 100;
 }
 
 .nav-button {
@@ -187,6 +192,7 @@ a:hover {
     outline: none;
     caret-color: transparent;
     position: relative;
+    word-break: break-all; /* Ensure long commands wrap properly */
 }
 
 .command-history {
@@ -202,4 +208,63 @@ a:hover {
 .error-message {
     color: #ff5555;
     margin-bottom: 15px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    body, html {
+        font-size: 14px; /* Slightly smaller font for mobile */
+    }
+
+    .terminal {
+        padding: 15px 10px;
+    }
+
+    .ascii-art {
+        font-size: 8px; /* Smaller ASCII art on mobile */
+    }
+
+    .prompt::before {
+        content: "guest@portfolio:~$\A"; /* Force line break after prompt on small screens */
+        white-space: pre;
+    }
+
+    .project, .skill-category, .experience {
+        padding-left: 10px; /* Less indentation on mobile */
+    }
+
+    /* Make navigation menu vertical on mobile */
+    .nav {
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .nav-button {
+        margin: 3px 0;
+        padding: 8px 10px; /* Larger tap target for mobile */
+        font-size: 14px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .ascii-art {
+        font-size: 6px; /* Even smaller ASCII art on very small screens */
+    }
+
+    .terminal {
+        padding: 10px 5px;
+    }
+
+    .nav {
+        max-width: 120px;
+    }
+
+    .nav-button {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
 }

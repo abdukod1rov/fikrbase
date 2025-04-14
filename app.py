@@ -38,6 +38,10 @@ def blog():
     return render_template("blog.html", articles=articles)
 
 
+@app.route("/about")
+def about():
+    return "This is an about page, hehe 😊"
+
 @app.route("/set-session")
 def set_session():
     session['user_id'] = 1
